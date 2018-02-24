@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      number: '10',
+      number: '0',
       newNumber: ''
     }
   }
@@ -25,10 +25,6 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">This project is a simple countdown - lcassiol</h1>
         </header>
-        <Clock
-          number={this.state.number}
-          ref="child"
-        />
         <Form inline>
           <FormControl
             className="Countdown-input"
@@ -39,6 +35,10 @@ class App extends Component {
             Submit
           </Button>
         </Form>
+        <Clock
+          number={this.state.number}
+          ref="child"
+        />
       </div>
     );
   }

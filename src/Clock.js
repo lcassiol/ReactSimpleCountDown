@@ -8,11 +8,9 @@ class Clock extends Component {
     this.state = {
       counter: 0,
       showVideo : false,
+      start: false
 
     }
-  }
-  componentWillMount() {
-    this.initialize(this.props.number);
   }
 
   componentDidMount() {
@@ -32,23 +30,24 @@ class Clock extends Component {
   }
 
   initialize(inputNumber) {
-    this.setState({counter : inputNumber, showVideo : false, total : inputNumber});
+    this.setState({counter : inputNumber, showVideo : false, total : inputNumber, start: true});
   }
 
   countDown(newNumber){
-    if(this.state.counter == 0 && !this.state.showVideo){
-      this.setState({showVideo : true});
-    }else{
-      this.setState({counter : this.state.counter -1});
+    if(this.state.start){
+      if(this.state.counter == 0 && !this.state.showVideo){
+        this.setState({showVideo : true});
+      }else{
+        this.setState({counter : this.state.counter -1});
+      }
     }
-
   }
 
   render() {
     return (
       <div>
         {
-          this.state.showVideo ?  <Youtube video="mYFaghHyMKc" autoplay="0" rel="0" modest="1" />
+          this.state.showVideo ?  <Youtube video="8XpVIuUgABo" autoplay="1" rel="0" modest="1" />
             : <div className="Clock-days">{this.leading0(this.state.counter)}</div>
         }
       </div>
